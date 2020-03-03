@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-    <style>
-        
+    <style> 
         table,
         td {
             border: 1px solid black;
@@ -13,70 +10,52 @@
             height: 50px;
             margin-left: 30px;
         }
-
         h2 {
             margin-left: 30px;
         }
-
         div {
             font-size: 20px;
         }
-
     </style>
-
 </head>
-
 <body >
-
     <!-- title -->
     <header>
         <h2><center>Tic Tac Toe</center></h2>
     </header>
-
     <table style="width:20%; margin:auto;" >
-
-
         <!-- row 1 -->
         <tr>
             <td onclick = "UserClick(event)" id="box1">?</td>
             <td onclick = "UserClick(event)" id="box2">?</td>
             <td onclick = "UserClick(event)" id="box3">?</td>
         </tr>
-
         <!-- row 2 -->
         <tr>
             <td onclick = "UserClick(event)" id="box4">?</td>
             <td onclick = "UserClick(event)" id="box5">?</td>
             <td onclick = "UserClick(event)" id="box6">?</td>
         </tr>
-
         <!-- row 3 -->
         <tr>
             <td onclick = "UserClick(event)" id="box7">?</td>
             <td onclick = "UserClick(event)" id="box8">?</td>
             <td onclick = "UserClick(event)" id="box9">?</td>
         </tr>
-
-
         <!-- Text -->
         <tr>
             <td colspan="3" id="message">X Begins</td>
         </tr>
-
         <!-- Reset Button -->
         <tr>
             <td onclick = "UserClickReset(event)" colspan="3" ><button id="reset">New Game</button></td>
         </tr>
-
     </table>
-
     <script>
         //checks current player's turn
         var playerCounter = 2;
-        
         // boolean, checks if game is over
         var gameOver = false;
-        
         function UserClick(event) 
         {
             // NEED TO FIGURE OUT LATER (to prevent plays after game ends) 
@@ -95,28 +74,19 @@
                         playerCounter++;
 
                         // checks if player's move is a win or not
-                        CheckWinCondition();
-                        
-                        
+                        CheckWinCondition();    
                     }
                     //if it's not player one's turn, it's player two's turn
                     else {
                            document.getElementById(event.target.id).innerText = 'O';
-
                         //changes text box message
                         document.getElementById("message").innerText = "X's Turn";
-
                         playerCounter++;
-                        CheckWinCondition();
-                        
-                    }
-                    
-                   
+                        CheckWinCondition();  
+                    }  
                 }
-            // }
-        
-        }
-        
+            // }        
+        }        
         // function for New Game button
         function UserClickReset(event) 
         {
@@ -133,12 +103,10 @@
             //resets player and message after new game
             playerCounter = 2;
             document.getElementById("message").innerText = "X Begins";
-        }
-        
+        }        
        // checks win conditions
         function CheckWinCondition()
-        {
-            
+        {          
             // checks first row
             if((document.getElementById("box1").innerText == 'X' && document.getElementById("box2").innerText == 'X' && document.getElementById("box3").innerText == 'X') || document.getElementById("box1").innerText == 'O' && document.getElementById("box2").innerText == 'O' && document.getElementById("box3").innerText == 'O')
                 // end game text
@@ -147,15 +115,12 @@
                         //changes text box message
                         document.getElementById("message").innerText = "O Wins!";
                         gameOver = true;
-                       
-                        
                     }
                     else {
                         document.getElementById("message").innerText = "X Wins!";  
                         gameOver = true;
                     }
-                }
-            
+                }        
               // checks second row
             if((document.getElementById("box4").innerText == 'X' && document.getElementById("box5").innerText == 'X' && document.getElementById("box6").innerText == 'X') || document.getElementById("box4").innerText == 'O' && document.getElementById("box5").innerText == 'O' && document.getElementById("box6").innerText == 'O')
                 // end game text
@@ -163,15 +128,13 @@
                     if (playerCounter % 2 == 0) {
                         //changes text box message
                         document.getElementById("message").innerText = "O Wins!";
-                        gameOver = true;
-                        
+                        gameOver = true;  
                     }
                     else {
                         document.getElementById("message").innerText = "X Wins!";  
                         gameOver = true;
                     }
-                }
-            
+                }           
               // checks third row
             if((document.getElementById("box7").innerText == 'X' && document.getElementById("box8").innerText == 'X' && document.getElementById("box9").innerText == 'X') || document.getElementById("box7").innerText == 'O' && document.getElementById("box8").innerText == 'O' && document.getElementById("box9").innerText == 'O')
                 // end game text
@@ -179,15 +142,13 @@
                     if (playerCounter % 2 == 0) {
                         //changes text box message
                         document.getElementById("message").innerText = "O Wins!";
-                        gameOver = true;
-                        
+                        gameOver = true;                      
                     }
                     else {
                         document.getElementById("message").innerText = "X Wins!";  
                         gameOver = true;
                     }
-                }
-            
+                }           
               // checks first column
             if((document.getElementById("box1").innerText == 'X' && document.getElementById("box4").innerText == 'X' && document.getElementById("box7").innerText == 'X') || document.getElementById("box1").innerText == 'O' && document.getElementById("box4").innerText == 'O' && document.getElementById("box7").innerText == 'O')
                 // end game text
@@ -195,15 +156,13 @@
                     if (playerCounter % 2 == 0) {
                         //changes text box message
                         document.getElementById("message").innerText = "O Wins!";
-                        gameOver = true;
-                        
+                        gameOver = true;   
                     }
                     else {
                         document.getElementById("message").innerText = "X Wins!";  
                         gameOver = true;
                     }
                 }
-            
               // checks second column
             if((document.getElementById("box2").innerText == 'X' && document.getElementById("box5").innerText == 'X' && document.getElementById("box8").innerText == 'X') || document.getElementById("box2").innerText == 'O' && document.getElementById("box5").innerText == 'O' && document.getElementById("box8").innerText == 'O')
                 // end game text
@@ -212,14 +171,12 @@
                         //changes text box message
                         document.getElementById("message").innerText = "O Wins!";
                         gameOver = true;
-                        
                     }
                     else {
                         document.getElementById("message").innerText = "X Wins!";  
                         gameOver = true;
                     }
-                }
-            
+                }            
               // checks third column
             if((document.getElementById("box3").innerText == 'X' && document.getElementById("box6").innerText == 'X' && document.getElementById("box9").innerText == 'X') || document.getElementById("box3").innerText == 'O' && document.getElementById("box6").innerText == 'O' && document.getElementById("box9").innerText == 'O')
                 // end game text
@@ -227,8 +184,7 @@
                     if (playerCounter % 2 == 0) {
                         //changes text box message
                         document.getElementById("message").innerText = "O Wins!";
-                        gameOver = true;
-                        
+                        gameOver = true;                      
                     }
                     else {
                         document.getElementById("message").innerText = "X Wins!";  
@@ -242,15 +198,13 @@
                     if (playerCounter % 2 == 0) {
                         //changes text box message
                         document.getElementById("message").innerText = "O Wins!";
-                        gameOver = true;
-                        
+                        gameOver = true;                        
                     }
                     else {
                         document.getElementById("message").innerText = "X Wins!";  
                         gameOver = true;
                     }
-                }
-            
+                }         
               // checks "/"
             if((document.getElementById("box7").innerText == 'X' && document.getElementById("box5").innerText == 'X' && document.getElementById("box3").innerText == 'X') || document.getElementById("box7").innerText == 'O' && document.getElementById("box5").innerText == 'O' && document.getElementById("box3").innerText == 'O')
                 // end game text
@@ -258,27 +212,19 @@
                     if (playerCounter % 2 == 0) {
                         //changes text box message
                         document.getElementById("message").innerText = "O Wins!";
-                        gameOver = true;
-                        
+                        gameOver = true;                      
                     }
                     else {
                         document.getElementById("message").innerText = "X Wins!";  
                         gameOver = true;
                     }
-                }
-            
+                }            
               // checks if nobody wins
             else if (playerCounter == 11) {
                 document.getElementById("message").innerText = "No winner...";
                         gameOver = true;
-            }
-            
-        }
-    
-        
-            
+            } 
+        }    
     </script>
-
 </body>
-
 </html>
